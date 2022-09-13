@@ -1,4 +1,4 @@
-# **WEB STACK IMPLEMENTATION (LEMP STACK)**
+# Project 2 - WEB STACK IMPLEMENTATION (LEMP STACK)
 
 ## Installing the Nginx Web Server
 
