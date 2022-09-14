@@ -2,11 +2,9 @@
 
 ## Installing the Nginx Web Server
 
-
 `sudo apt update`
 
 `sudo apt update install nginx`
-
 
 *Verifing that nginx was successfully installed*
 
@@ -51,7 +49,33 @@ creating the web directory for domain
 
 `sudo nano /etc/nginx/sites-available/projectLEMP`
 
-![alt text](./Images/06%20-%20writing%20into%20text%20editor.png)
+
+```
+#/etc/nginx/sites-available/projectLEMP
+
+server {
+    listen 80;
+    server_name projectLEMP www.projectLEMP;
+    root /var/www/projectLEMP;
+
+    index index.html index.htm index.php;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
+     }
+
+    location ~ /\.ht {
+        deny all;
+    }
+
+}
+```
+
 
 `sudo ln -s /etc/nginx/sites-available/projectLEMP /etc/nginx/sites-enabled/`
 
@@ -61,11 +85,12 @@ creating the web directory for domain
 
 `sudo systemctl reload nginx`
 
-`sudo echo 'Hello LEMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectLEMP/index.html`
+```
+sudo echo 'Hello LEMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectLEMP/index.html
+```
 
 
 `http://3.82.99.231:80`
-
 
 Testing on Browser
 ![alt text](./Images/08%20-%20testing%20on%20browser.png)
@@ -75,15 +100,19 @@ Testing on Browser
 
 *Testing PHP with ngix*
 
-![alt text](./Images/09%20-.png)
+```
+<?php
+phpinfo();
+```
 
 `http://3.82.99.231/info.php`
 
 ![alt text](./Images/10%20-.png)
 
 
-# **Retrieving data from MySQL database with PHP**
+## **Retrieving data from MySQL database with PHP**
 
+connect to the MySQL console using the root account:
 `sudo mysql`
 
 `mysql> CREATE DATABASE `example_database`;`
@@ -113,14 +142,14 @@ Testing on Browser
 
 `nano /var/www/projectLEMP/todo_list.php`
 
-`<?php
+```
+<?php
 $user = "example_user";
 $password = "password";
 $database = "example_database";
-$table = "todo_list";`
+$table = "todo_list";
 
-
-`try {
+try {
   $db = new PDO("mysql:host=localhost;dbname=$database", $user, $password);
   echo "<h2>TODO</h2><ol>";
   foreach($db->query("SELECT content FROM $table") as $row) {
@@ -129,10 +158,12 @@ $table = "todo_list";`
   echo "</ol>";
 } catch (PDOException $e) {
     print "Error!: " . $e->getMessage() . "<br/>";
-    die();`
+    die();
 }
-
+```
 
 `http://3.82.99.231/todo_list.php`
 
 ![alt text](./Images/12.%20.png)
+
+Completed

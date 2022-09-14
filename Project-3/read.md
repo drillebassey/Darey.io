@@ -13,7 +13,7 @@ MERN Web stack consists of following components:
     4. Node.js: A JavaScript runtime environment. It is used to run JavaScript on a machine rather than in a browser.
 
 
-
+## **Backend configuration**
 `sudo apt update`
 
 `sudo apt upgrade`
@@ -42,7 +42,7 @@ verify the node installation
 ![alt text](./Images/02-Application%20Setup.png)
 
 
-## Install ExpressJs
+## **Install ExpressJs**
 
 Install the expressjs inside the Todo Directory
 
@@ -130,6 +130,11 @@ Go back to the Todo Directory
 
 `cd ..`
 
+## **Models**
+
+A model is at the heart of JavaScript based applications, and it is what makes it interactive.
+
+*To create a Schema and a model, install mongoose which is a Node.js package that makes working with mongodb easier.*
 
 Install mongoose
 
@@ -284,7 +289,7 @@ console.log(`Server running on port ${port}`)
 
 
 
-## Frontend Creation
+## **Frontend Creation**
 
 Go to the Todo directory
 
@@ -327,7 +332,7 @@ change the directory back to the Todo
 
 `npm run dev`
 
-## Creating React Components
+## **Creating React Components**
 
 `cd client`
 
