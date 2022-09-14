@@ -10,7 +10,7 @@
 
 `sudo systemctl status nginx`
 
-Html image for ngix default page
+*Html image for ngix default page*
 
 `curl http://localhost:80`
 
@@ -31,7 +31,7 @@ Html image for ngix default page
 ![alt text](./Images/04%20-%20.png)
 
 
-## **Installing PHP**
+## Installing PHP
 
 `sudo apt install php-fpm php-mysql`
 
@@ -39,9 +39,9 @@ Html image for ngix default page
 
 ![alt text](./Images/05%20-%20PHP%20Install.png)
 
-## **Configuring Nginx to Use PHP Processor**
+## Configuring Nginx to Use PHP Processor
 
-creating the web directory for domain
+*creating the web directory for domain*
 
 `sudo mkdir /var/www/projectLEMP`
 
@@ -92,7 +92,8 @@ sudo echo 'Hello LEMP from hostname' $(curl -s http://169.254.169.254/latest/met
 
 `http://3.82.99.231:80`
 
-Testing on Browser
+*Testing on Browser*
+
 ![alt text](./Images/08%20-%20testing%20on%20browser.png)
 
 
@@ -110,9 +111,10 @@ phpinfo();
 ![alt text](./Images/10%20-.png)
 
 
-## **Retrieving data from MySQL database with PHP**
+## Retrieving data from MySQL database with PHP
 
-connect to the MySQL console using the root account:
+*connect to the MySQL console using the root account:*
+
 `sudo mysql`
 
 `mysql> CREATE DATABASE `example_database`;`
@@ -166,4 +168,4 @@ try {
 
 ![alt text](./Images/12.%20.png)
 
-Completed
+*Completed*

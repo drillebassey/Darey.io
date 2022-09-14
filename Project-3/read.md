@@ -3,28 +3,24 @@
 In this project, I am tasked to implement a web solution based on MERN stack in AWS Cloud.
 
 MERN Web stack consists of following components:
-
-    1. MongoDB: A document-based, No-SQL database used to store application data in a form of documents.
-
-    2. ExpressJS: A server side Web Application framework for Node.js.
-
-    3. ReactJS: A frontend framework developed by Facebook. It is based on JavaScript, used to build User Interface (UI) components.
-
-    4. Node.js: A JavaScript runtime environment. It is used to run JavaScript on a machine rather than in a browser.
+1. MongoDB: A document-based, No-SQL database used to store application data in a form of documents.
+2. ExpressJS: A server side Web Application framework for Node.js.
+3. ReactJS: A frontend framework developed by Facebook. It is based on JavaScript, used to build User Interface (UI) components.
+ 4. Node.js: A JavaScript runtime environment. It is used to run JavaScript on a machine rather than in a browser.
 
 
-## **Backend configuration**
+## Backend configuration
 `sudo apt update`
 
 `sudo apt upgrade`
 
-Getting the location of node.js software from Ubuntu repositories
+*Getting the location of node.js software from Ubuntu repositories*
 
 `curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -`
 
 `sudo apt-get install -y nodejs`
 
-verify the node installation
+*verify the node installation*
 
 `npm -v`
 
@@ -44,21 +40,21 @@ verify the node installation
 
 ## **Install ExpressJs**
 
-Install the expressjs inside the Todo Directory
+*Install the expressjs inside the Todo Directory*
 
 `npm install express`
 
-create a file named index.js in the Todo directory
+*create a file named index.js in the Todo directory*
 
 `touch index.js`
 
-Install the dotenv module
+*Install the dotenv module*
 
 `npm install dotenv`
 
 `vim index.js`
 
-copy the following code inside the index.js
+*copy the following code inside the index.js*
 
 
 ```const express = require('express');
@@ -85,24 +81,24 @@ console.log(`Server running on port ${port}`)
 ```
 RUN `index.js`
 
-Testing on browser
+*Testing on browser*
 
 ![alt text](./Images/03-Testing%20on%20the%20web.png)
 
 
 ## Creating Routes to complete the task
 
-Create a folder called routes inside the Todo directory
+*Create a folder called routes inside the Todo directory*
 
 `mkdir routes`
 
 `cd routes`
 
-create api.js
+*create api.js*
 
 `touch api.js`
 
-edit the api.js and insert the code underneath
+*edit the api.js and insert the code underneath*
 
 `vim api.js`
 
@@ -126,28 +122,28 @@ module.exports = router;
 
 ```
 
-Go back to the Todo Directory
+*Go back to the Todo Directory*
 
 `cd ..`
 
 ## **Models**
 
-A model is at the heart of JavaScript based applications, and it is what makes it interactive.
+*A model is at the heart of JavaScript based applications, and it is what makes it interactive*
 
 *To create a Schema and a model, install mongoose which is a Node.js package that makes working with mongodb easier.*
 
-Install mongoose
+*Install mongoose*
 
 `npm install mongoose`
 
-Create a folder under the Todo directory
+*Create a folder under the Todo directory*
 
 
 `mkdir models`
 
 `cd models`
 
-create and edit the todo.js
+*create and edit the todo.js*
 
 `touch todo.js`
 
@@ -155,7 +151,7 @@ create and edit the todo.js
 
 `vim todo.js`
 
-insert the following code
+*insert the following code*
 
 ```
 const mongoose = require('mongoose');
@@ -176,13 +172,13 @@ module.exports = Todo;
 
 ```
 
-Change the directory to Todo/routes
+*Change the directory to Todo/routes*
 
 `cd ../routes`
 
 `vim api.js`
 
-replace the content of api.js with the code underneath
+*replace the content of api.js with the code underneath*
 
 ```
 const express = require ('express');
@@ -218,23 +214,23 @@ Todo.findOneAndDelete({"_id": req.params.id})
 module.exports = router;
 ```
 
-Create a MongoDB database and collection inside mLab and copy out the connection link string
+*Create a MongoDB database and collection inside mLab and copy out the connection link string*
 
-Change the directory back to the Todo directory on your terminal
+*Change the directory back to the Todo directory on your terminal*
 
 `cd ..`
 
-create a file and name .nv
+*create a file and name .nv*
 
-insert the code inside the .env
+*insert the code inside the .env*
 
 ```
 DB = 'mongodb+srv://<username>:<password>@<network-address>/<dbname>?retryWrites=true&w=majority'
 ```
-Update username and password
+*Update username and password*
 
 
-Simply delete existing content in index.js, and update it with the entire code below.
+*Simply delete existing content in index.js, and update it with the entire code below.*
 
 `vim index.js`
 
@@ -278,7 +274,7 @@ console.log(`Server running on port ${port}`)
 });
 ```
 
-`inex.js`
+`index.js`
 
 ![alt text](./Images/04-connected%20sucesfully%20to%20MongoDB.png)
 
@@ -289,21 +285,21 @@ console.log(`Server running on port ${port}`)
 
 
 
-## **Frontend Creation**
+## Frontend Creation
 
-Go to the Todo directory
+*Go to the Todo directory*
 
 `npx create-react-app client`
 
-install concurrently
+*install concurrently*
 
 `npm install concurrently --save-dev`
 
-install nodemon
+*install nodemon*
 
 `npm install nodemon --save-dev`
 
-edit the package.json inside the Todo directory and insert the following under the scripts:
+*edit the package.json inside the Todo directory and insert the following under the scripts:*
 
 `vi package.json`
 
@@ -315,24 +311,24 @@ edit the package.json inside the Todo directory and insert the following under t
 },
 ```
 
-Change the directory to client inside the Todo
+*Change the directory to client inside the Todo*
 
 `cd client`
 
 `vi package.json`
 
-add the code into the content of package.json
+*add the code into the content of package.json*
 
 `"proxy": "http://localhost:5000"`
 
-change the directory back to the Todo
+*change the directory back to the Todo*
 
 
 `cd ..`
 
 `npm run dev`
 
-## **Creating React Components**
+## Creating React Components
 
 `cd client`
 
@@ -340,11 +336,11 @@ change the directory back to the Todo
 
 `mkdir components`
 
-create three files inside the components directory
+*create three files inside the components directory*
 
 `touch Input.js ListTodo.js Todo.js`
 
-edit the Input.js and paste the code below inside
+*edit the Input.js and paste the code below inside*
 
 `vi Input.js`
 
@@ -396,19 +392,19 @@ return (
 export default Input
 ````
 
-Install Axios inside the Clients Directory
+*Install Axios inside the Clients Directory*
 
 `cd ../..`
 
 `npm install axios`
 
-Change the directory to src/components to edit the ListTodo.js and Todo.js
+*Change directory to src/components to edit the ListTodo.js and Todo.js*
 
 `cd src/components`
 
 `vi ListTodo.js`
 
-copy the code under inside the ListTodo.js
+*copy the code under inside the ListTodo.js*
 
 ```
 import React from 'react';
@@ -507,7 +503,7 @@ change the directory to src directory
 
 `vi api.js`
 
-copy the code under inside the api.js
+*copy the code under inside the api.js*
 
 ```
 import React from 'react';
@@ -528,7 +524,7 @@ export default App;
 
 `vi App.css`
 
-copy the code under in side the App.css
+*copy the code under in side the App.css*
 
 
 ```
@@ -623,7 +619,7 @@ margin-top: 0;
 
 vim index.css
 
-copy the code under inside the index.css
+*copy the code under inside the index.css*
 
 ```
 body {
@@ -659,4 +655,4 @@ On the browswe, type Public-Ip-Address:30000
 ![alt text](./Images/09-alldone.jpg)
 
 
-Completed
+*Completed*

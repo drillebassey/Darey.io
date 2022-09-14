@@ -3,10 +3,9 @@
 ## What is a Technology stack?
 
 A technology stack is a set of frameworks and tools used to develop a software product. This set of frameworks and tools are very specifically chosen to work together in creating a well-functioning software. They are acronymns for individual technologies used together for a specific technology product. 
-example:
-**LAMP (Linux, Apache, MySQL, PHP or Python, or Perl)**
+example: LAMP (Linux, Apache, MySQL, PHP or Python, or Perl)
 
-**Login to EC2 Server**
+## Login to EC2 Server
 
 ![alt text](./Images/Log%20in%20to%20EC2%20Server.png)
 
@@ -21,15 +20,12 @@ example:
 ![alt text](./Images/2.%20Verifying%20Apache%20installed.png)
 
 
-## Html Image for apache2 default page
-
+Html Image for apache2 default page
 
 ![alt text](./Images/3.%20Testing%20Apache%20in%20the%20browser.png)
 
 
-
-
-## **My SQL Installation**
+## My SQL Installation
 
 `sudo apt install mysql-server`
 
@@ -42,7 +38,7 @@ example:
 ![alt text](./Images/5%20-%20Testing%20mysql.png)
 
 
-## **PHP Installation**
+## PHP Installation
 
 `sudo apt install php libapache2-mod-php php-mysql`
 
@@ -50,7 +46,7 @@ php -v
 
 ![alt text](./Images/6-%20Php%20Installation.png)
 
-## **Creating Virtual Host using Apache**
+## Creating Virtual Host using Apache
 
 `sudo mkdir /var/www/projectlamp`
 
@@ -83,10 +79,11 @@ sudo echo 'Hello LAMP from hostname' $(curl -s http://169.254.169.254/latest/met
 ```
 
 
-**Checking the status code on web browser**
+Checking the status code on web browser
+
 ![alt text](./Images/8-.png)
 
-## **Enabling PHP on Website**
+## Enabling PHP on Website
 
 `sudo vim /etc/apache2/mods-enabled/dir.conf`
 
@@ -101,7 +98,7 @@ sudo echo 'Hello LAMP from hostname' $(curl -s http://169.254.169.254/latest/met
 
 `sudo systemctl reload apache2`
 
-Create a new file named index.php inside your custom web root folder:
+*Create a new file named index.php inside your custom web root folder*
 
 `vim /var/www/projectlamp/index.php`
 
@@ -114,4 +111,4 @@ phpinfo();
 ![alt text](./Images/10%20-.png)
 
 
-completed
+*completed*
